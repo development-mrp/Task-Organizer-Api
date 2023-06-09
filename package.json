@@ -1,0 +1,11 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "This project is used to manage and perform crud operations over the tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
