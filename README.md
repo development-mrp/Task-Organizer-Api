@@ -1,6 +1,8 @@
-# Node.js ToDo App
+# Task Organizer API
 
-The Node.js ToDo App is a feature-rich task management application built using Node.js and MongoDB. It provides an intuitive and efficient way to organize your tasks, set priorities, and keep track of your progress. This app is designed to streamline your workflow and enhance your productivity.
+The Task Organizer API is a feature-rich task management application built using Node.js and MongoDB. 
+It provides an intuitive and efficient way to organize your tasks, set priorities, and keep track of your progress. 
+This app is designed to streamline your workflow and enhance your productivity.
 
 ## Features
 
@@ -15,10 +17,6 @@ The Node.js ToDo App is a feature-rich task management application built using N
 - **Task Filtering and Sorting**: Easily search and filter tasks based on various criteria, such as priority, due date, category, or keywords. Sort tasks by different parameters for better organization.
 
 - **User Accounts**: Register an account to securely store your tasks and access them from anywhere. User authentication and authorization features ensure data privacy and security.
-
-- **Collaboration**: Share tasks with team members and collaborate on projects by assigning tasks to specific users. Keep everyone in sync and boost team productivity.
-
-- **Cross-Platform Compatibility**: Access the ToDo app from any device, including desktops, laptops, tablets, and smartphones. The app is responsive and optimized for different screen sizes.
 
 - **Data Persistence with MongoDB**: Utilizes MongoDB, a robust and scalable NoSQL database, to store and manage tasks. Ensure seamless data storage and retrieval.
 
@@ -37,7 +35,7 @@ The Node.js ToDo App is a feature-rich task management application built using N
     npm start
 6. Open your browser and visit:
     http://localhost:3000
-
+    
 ## Technologies Used
 
 - Node.js
@@ -45,6 +43,106 @@ The Node.js ToDo App is a feature-rich task management application built using N
 - MongoDB
 - HTML/CSS
 - JavaScript
+
+## Authentication
+
+All endpoints require authentication via a valid JWT token.
+
+## Base URL
+
+```
+https://api.example.com
+```
+
+## Endpoints
+
+### 1. Create a task
+
+```
+POST /tasks
+```
+
+Create a new task.
+
+#### Request Body
+
+| Field    | Type   | Description        |
+|----------|--------|--------------------|
+| title    | string | Title of the task  |
+| priority | string | Priority of the task (e.g., high, medium, low) |
+
+#### Response
+
+```json
+{
+  "id": "task_id",
+  "title": "Task Title",
+  "priority": "high",
+  "createdAt": "2023-06-10T12:00:00Z"
+}
+```
+
+### 2. Get all tasks
+
+```
+GET /tasks
+```
+
+Retrieve all tasks.
+
+#### Response
+
+```json
+[
+  {
+    "id": "task_id1",
+    "title": "Task 1",
+    "priority": "high",
+    "createdAt": "2023-06-10T12:00:00Z"
+  },
+  {
+    "id": "task_id2",
+    "title": "Task 2",
+    "priority": "medium",
+    "createdAt": "2023-06-10T13:00:00Z"
+  }
+]
+```
+
+### 3. Get a specific task
+
+```
+GET /tasks/{taskId}
+```
+
+Retrieve a specific task by its ID.
+
+#### Response
+
+```json
+{
+  "id": "task_id",
+  "title": "Task Title",
+  "priority": "high",
+  "createdAt": "2023-06-10T12:00:00Z"
+}
+```
+
+### 4. Update a task
+
+```
+PUT /tasks/{taskId}
+```
+
+Update a specific task by its ID.
+
+#### Request Body
+
+```
+| Field    | Type   | Description        |
+|----------|--------|--------------------|
+| title    | string | New title of the task  |
+```
 
 ## Contributing
 
@@ -55,14 +153,6 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
-
 - [Node.js](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
 - [MongoDB](https://www.mongodb.com/)
-- [Bootstrap](https://getbootstrap.com/)
-- [Font Awesome](https://fontawesome.com/)
-
-## Screenshots
-
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
