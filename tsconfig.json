@@ -17,6 +17,6 @@
   ],
   "typeRoots": [
     "./node_modules/@types",
-    // "src/@Types/index.d.ts"
+    "src/@Types/index.d.ts"
   ]
 }

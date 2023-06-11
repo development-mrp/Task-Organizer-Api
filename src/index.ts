@@ -1,11 +1,12 @@
-import express from 'express';
-const app = express();
-const port = 3000;
+import { Server } from "./server";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+let server: Server;
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
-});
+try {
+  server = new Server(process.env.ENV, process.env.PORT);
+  server.start();
+} catch (err) {
+  process.exit(1);
+}
