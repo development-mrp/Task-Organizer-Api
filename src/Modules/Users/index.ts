@@ -105,33 +105,31 @@ export default class UserController {
     *         name: "authorization"
     *         type: "string"
     *         required: "true" 
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: "true" 
-    *         schema:
-    *           properties:
-    *             page:
-    *               type: number
-    *               description: "The page number for pagination"
-    *               minimum: 1
-    *             pageSize:
-    *               type: number
-    *               description: "The page size for pagination"
-    *               minimum: 10
-    *             where:
-    *               type: "object"
-    *               required: false
-    *               schema:
-    *                 name: 
-    *                   required: false
-    *                   type: "string"
-    *                   example: "mohit"
-    *                 email:
-    *                   required: false
-    *                   type: "string"
-    *                   example: "mohit"
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             properties:
+    *               page:
+    *                 type: number
+    *                 description: "The page number for pagination"
+    *                 minimum: 1
+    *               pageSize:
+    *                 type: number
+    *                 description: "The page size for pagination"
+    *                 minimum: 10
+    *               where:
+    *                 type: "object"
+    *                 required: false
+    *                 schema:
+    *                   name: 
+    *                     required: false
+    *                     type: "string"
+    *                     example: "mohit"
+    *                   email:
+    *                     required: false
+    *                     type: "string"
+    *                     example: "mohit"
     */
     this.router.post('/', this.getUsers);
 
@@ -156,20 +154,17 @@ export default class UserController {
     *         description: "Data not found"
     *       500: 
     *         description: "Server error"
-    *     parameters:
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: "true" 
-    *         schema:
-    *           properties:
-    *             email: 
-    *               type: string
-    *               required: true
-    *             password: 
-    *               type: string
-    *               required: true
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             properties:
+    *               email: 
+    *                 type: string
+    *                 required: true
+    *               password: 
+    *                 type: string
+    *                 required: true
     */
     this.router.post('/authenticate', this.login);
 
@@ -200,13 +195,11 @@ export default class UserController {
     *         name: "authorization"
     *         type: "string"
     *         required: true 
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: true 
-    *         schema:
-    *           $ref: "#/definitions/CreateUserSchema"
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             $ref: "#/definitions/CreateUserSchema"
     */
     this.router.post('/add-admin-user', this.createAdminUser);
 
@@ -239,33 +232,31 @@ export default class UserController {
     *         name: "authorization"
     *         type: "string"
     *         required: "true" 
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: "true" 
-    *         schema:
-    *           properties:
-    *             userData: 
-    *               type: "object"
-    *               required: "true"
-    *               schema:
-    *                 name: 
-    *                   required: false
-    *                   type: "string"
-    *                   example: "mohit"
-    *                 email:
-    *                   required: false
-    *                   type: "string"
-    *                   example: "mohit"
-    *             whereCondition:
-    *               type: "object"
-    *               required: "true"
-    *               schema:
-    *                 email:
-    *                   required: true
-    *                   type: "string"
-    *                   example: "mohit@gmail.com"   
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             properties:
+    *               userData: 
+    *                 type: "object"
+    *                 required: "true"
+    *                 schema:
+    *                   name: 
+    *                     required: false
+    *                     type: "string"
+    *                     example: "mohit"
+    *                   email:
+    *                     required: false
+    *                     type: "string"
+    *                     example: "mohit"
+    *               whereCondition:
+    *                 type: "object"
+    *                 required: "true"
+    *                 schema:
+    *                   email:
+    *                     required: true
+    *                     type: "string"
+    *                     example: "mohit@gmail.com"   
     */
     this.router.put('/', this.updateUsers);
 
@@ -296,24 +287,22 @@ export default class UserController {
    *         name: "authorization"
    *         type: "string"
    *         required: "true" 
-   *       - in: "body"
-   *         description: "The body of the request"
-   *         name: "Request body"
-   *         type: "object"
-   *         required: "true" 
-   *         schema:
-   *           properties:
-   *             name: 
-   *               required: false
-   *               type: "string"
-   *               example: "mohit"
-   *             email:
-   *               required: false
-   *               type: "string"
-   *               example: "mohit"
-   *             id:
-   *               required: false
-   *               type: "string" 
+   *     requestBody:
+   *       content:
+   *         "application/json":
+   *            schema:
+   *              properties:
+   *                name: 
+   *                  required: false
+   *                  type: "string"
+   *                  example: "mohit"
+   *                email:
+   *                  required: false
+   *                  type: "string"
+   *                  example: "mohit"
+   *                id:
+   *                  required: false
+   *                  type: "string" 
    */
     this.router.delete('/', this.removeUser);
 
