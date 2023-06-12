@@ -27,10 +27,11 @@ export class Router {
         info: {
           title: 'To Do app',
           version,
-          description: 'To Do application for testing purposes',
+          summary:"The Task Organizer API is a feature-rich task management application built using Node.js and MongoDB.",
+          description: 'It provides an intuitive and efficient way to organize your tasks, set priorities, and keep track of your progress. This app is designed to streamline your workflow and enhance your productivity.',
           contact: {
             "name": "Mohit Raj Panday",
-            "email": "test@test.com"
+            // "email": "test@test.com"
           },
           servers: ["http://localhost:3000"]
         },
