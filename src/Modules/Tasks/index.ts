@@ -42,30 +42,28 @@ export default class TasksController {
     *         name: "authorization"
     *         type: "string"
     *         required: "true" 
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: "true" 
-    *         schema:
-    *           properties:
-    *             page:
-    *               type: number
-    *               description: "The page number for pagination"
-    *               minimum: 1
-    *             pageSize:
-    *               type: number
-    *               description: "The page size for pagination"
-    *               minimum: 10
-    *             where:
-    *               type: "object"
-    *               required: false
-    *               schema:
-    *                 title: 
-    *                   required: false
-    *                   type: "string"
-    *                   example: "task title"
-    *                   description: "title of the task"
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             properties:
+    *               page:
+    *                 type: number
+    *                 description: "The page number for pagination"
+    *                 minimum: 1
+    *               pageSize:
+    *                 type: number
+    *                 description: "The page size for pagination"
+    *                 minimum: 10
+    *               where:
+    *                 type: "object"
+    *                 required: false
+    *                 schema:
+    *                   title: 
+    *                     required: false
+    *                     type: "string"
+    *                     example: "task title"
+    *                     description: "title of the task"
     */
     this.router.post('/getAllTasks', this.getAllTasks);
 
@@ -133,13 +131,11 @@ export default class TasksController {
     *         name: "authorization"
     *         type: "string"
     *         required: true 
-    *       - in: "body"
-    *         description: "The body of the request"
-    *         name: "Request body"
-    *         type: "object"
-    *         required: true 
-    *         schema:
-    *           $ref: "#/definitions/CreateTaskSchema"
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             $ref: "#/definitions/CreateTaskSchema"
     */
     this.router.post('/', this.createTask);
 
@@ -175,24 +171,23 @@ export default class TasksController {
     *         name: "id"
     *         type: "string"
     *         required: true 
-    *       - in: "body"
-    *         description: "Request body to update"
-    *         name: "Request body"
-    *         type: "object"
-    *         schema:
-    *           properties:
-    *             title: 
-    *               description: "Title of task"
-    *               type: "string"
-    *               example: "Title of task"
-    *             summary: 
-    *               description: "summary of task"
-    *               type: "string"
-    *               example: "summary of task"
-    *             completed: 
-    *               description: "Completed status of task"
-    *               type: "string"
-    *               example: true
+    *     requestBody:
+    *       content:
+    *         "application/json":
+    *           schema:
+    *             properties:
+    *               title: 
+    *                 description: "Title of task"
+    *                 type: "string"
+    *                 example: "Title of task"
+    *               summary: 
+    *                 description: "summary of task"
+    *                 type: "string"
+    *                 example: "summary of task"
+    *               completed: 
+    *                 description: "Completed status of task"
+    *                 type: "string"
+    *                 example: true
     */
     this.router.put('/:id', this.updateTask);
     /**
